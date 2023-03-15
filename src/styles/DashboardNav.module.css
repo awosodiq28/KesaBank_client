@@ -1,0 +1,35 @@
+.DashboardNav {
+	width: 240px;
+	padding: 1px 20px 20px 20px;
+	display: block;
+	background-color: white;
+	margin-top: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 35px 0 rgb(154 161 171 / 15%);
+}
+.DashboardNav a {
+	color: #6f8ba4;
+	margin: 30px 24px;
+	display: block;
+}
+.dropdownContent {
+	margin: -16px 0px;
+}
+.flexSB {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+}
+.flex {
+	display: grid;
+	grid-auto-flow: column;
+	gap: 0.5rem;
+	justify-content: start;
+	align-items: center;
+}
+.displayNone {
+	display: none;
+}
+.leftpad {
+	padding-left: 20px;
+}

@@ -18,6 +18,10 @@
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "4.9.5"
+    "react-hook-form": "^7.43.2",
+    "react-icons": "^4.7.1",
+    "react-phone-number-input": "^3.2.19",
+    "typescript": "4.9.5",
+    "zod": "^3.20.6"
   }
 }

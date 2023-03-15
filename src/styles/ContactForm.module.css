@@ -1,0 +1,19 @@
+.flex {
+	display: flex;
+	gap: 20px;
+}
+
+.contactForm button {
+	padding: 15px;
+	color: white;
+	border-radius: 5px;
+	background-color: var(--secondary-color);
+	display: block;
+	margin: auto;
+	border: none;
+	margin-top: 20px;
+}
+
+.contactForm {
+	text-align: center;
+}
