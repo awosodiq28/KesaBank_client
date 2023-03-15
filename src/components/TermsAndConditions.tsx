@@ -8,7 +8,6 @@ const TermsAndConditions = () => {
 	return (
 		<section className={styles.policy}>
 			<div className={styles.pad}>
-				<h1>{user.account_no}</h1>
 				<h1>Terms and Conditions</h1>
 			</div>
 			<div>

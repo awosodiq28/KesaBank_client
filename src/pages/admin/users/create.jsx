@@ -52,7 +52,11 @@ const Register = () => {
 	return (
 		<AdminLayout>
 			<div className={styles.form}>
-				{error && <h6 className={styles.error}>{error}</h6>}
+				{error ? (
+					<h6 className={styles.error}>{error}</h6>
+				) : (
+					<span></span>
+				)}
 				<h6>Add a New User</h6>
 				<form onSubmit={handleSubmit(signUp)} method="POST">
 					<input
