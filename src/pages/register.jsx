@@ -3,17 +3,17 @@ import React, { FC, useContext, useEffect, useState } from "react";
 import styles from "../styles/Form.module.css";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { RegisterSchema, RegisterSchemaType } from "../helpers/schema";
+import { RegisterSchema } from "../helpers/schema";
 import { useRouter } from "next/router";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import AuthContext from "@/components/AuthContext";
 
-const Register: FC = () => {
-	const [error, setError] = useState(null) as any;
+const Register = () => {
+	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [phoneNumber, setPhoneNumnber] = useState("");
-	const { user }: any = useContext(AuthContext);
+	const { user } = useContext(AuthContext);
 
 	const router = useRouter();
 
@@ -26,9 +26,11 @@ const Register: FC = () => {
 		register,
 		handleSubmit,
 		formState: { errors, isSubmitting }
-	} = useForm<RegisterSchemaType>({ resolver: zodResolver(RegisterSchema) });
+	} = useForm <
+	RegisterSchemaType >
+	{ resolver: zodResolver(RegisterSchema) };
 
-	const signUp = async ({ email, password, fullName }: any) => {
+	const signUp = async ({ email, password, fullName }) => {
 		if (navigator && navigator.onLine) {
 			const res = await fetch("http://localhost:4000/auth/register", {
 				method: "POST",
@@ -100,7 +102,7 @@ const Register: FC = () => {
 								placeholder="Phone Number"
 								// {...register("phoneNumber")}
 								value={phoneNumber}
-								// onChange={(e: any) => {
+								// onChange={(e) => {
 								// 	console.log(e.target);
 								// 	setPhoneNumnber(e.target);
 								// }}
