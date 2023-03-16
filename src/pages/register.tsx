@@ -3,17 +3,17 @@ import React, { FC, useContext, useEffect, useState } from "react";
 import styles from "../styles/Form.module.css";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { RegisterSchema } from "../helpers/schema";
+import { RegisterSchema, RegisterSchemaType } from "../helpers/schema";
 import { useRouter } from "next/router";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import AuthContext from "@/components/AuthContext";
 
-const Register = () => {
-	const [error, setError] = useState(null);
+const Register: FC = () => {
+	const [error, setError] = useState(null) as any;
 	const [loading, setLoading] = useState(true);
-	const [phoneNumber, setPhoneNumnber] = useState("");
-	const { user } = useContext(AuthContext);
+	const [phoneNumber, setPhoneNumnber] = useState("") as any;
+	const { user }: any = useContext(AuthContext);
 
 	const router = useRouter();
 
@@ -26,11 +26,9 @@ const Register = () => {
 		register,
 		handleSubmit,
 		formState: { errors, isSubmitting }
-	} = useForm <
-	RegisterSchemaType >
-	{ resolver: zodResolver(RegisterSchema) };
+	} = useForm<RegisterSchemaType>({ resolver: zodResolver(RegisterSchema) });
 
-	const signUp = async ({ email, password, fullName }) => {
+	const signUp = async ({ email, password, fullName }: any) => {
 		if (navigator && navigator.onLine) {
 			const res = await fetch("http://localhost:4000/auth/register", {
 				method: "POST",
@@ -100,13 +98,13 @@ const Register = () => {
 								// control={control}
 								rules={{ required: false }}
 								placeholder="Phone Number"
-								// {...register("phoneNumber")}
+								{...register("phoneNumber")}
 								value={phoneNumber}
-								// onChange={(e) => {
+								// onChange={(e: any) => {
 								// 	console.log(e.target);
 								// 	setPhoneNumnber(e.target);
 								// }}
-								required={false}
+								// required={false}
 								onChange={setPhoneNumnber}
 							/>
 							<span className={styles.error}>
