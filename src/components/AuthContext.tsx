@@ -16,17 +16,20 @@ export const AuthProvider = ({ children }: any) => {
 	const login = async ({ email, password }: any) => {
 		// if (navigator && navigator.onLine) {
 		setLoading(true);
-		const res = await fetch("http://localhost:4000/auth/login", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			credentials: "include",
-			body: JSON.stringify({
-				email,
-				password
-			})
-		});
+		const res = await fetch(
+			"https://kesa-bank-backend2.onrender.com/auth/login",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				credentials: "include",
+				body: JSON.stringify({
+					email,
+					password
+				})
+			}
+		);
 		const data = await res.json();
 		console.log(data);
 		setLoading(false);
@@ -49,10 +52,13 @@ export const AuthProvider = ({ children }: any) => {
 	};
 
 	const signout = async () => {
-		const res = await fetch("http://localhost:4000/auth/logout", {
-			method: "GET",
-			credentials: "include"
-		});
+		const res = await fetch(
+			"https://kesa-bank-backend2.onrender.com/auth/logout",
+			{
+				method: "GET",
+				credentials: "include"
+			}
+		);
 		if (res.ok) {
 			setUser(null);
 			router.push("/");
@@ -72,10 +78,13 @@ export const AuthProvider = ({ children }: any) => {
 
 	const checkUserLoggedIn = async () => {
 		console.log("effect");
-		const res = await fetch("http://localhost:4000/auth/me", {
-			method: "GET",
-			credentials: "include"
-		});
+		const res = await fetch(
+			"https://kesa-bank-backend2.onrender.com/auth/me",
+			{
+				method: "GET",
+				credentials: "include"
+			}
+		);
 		const data = await res.json();
 		console.log("🚀 ~ file: AuthContext.tsx:56 ~ data:", data);
 		if (res.ok) {
@@ -88,10 +97,13 @@ export const AuthProvider = ({ children }: any) => {
 	};
 	const getAllUsers = async () => {
 		console.log("effect");
-		const res = await fetch("http://localhost:4000/user", {
-			method: "GET",
-			credentials: "include"
-		});
+		const res = await fetch(
+			"https://kesa-bank-backend2.onrender.com/user",
+			{
+				method: "GET",
+				credentials: "include"
+			}
+		);
 		const data = await res.json();
 		console.log("🚀 ~ file: AuthContext.tsx:56 ~ data:", data);
 		if (res.ok) {
