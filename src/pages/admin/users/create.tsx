@@ -9,8 +9,8 @@ import "react-phone-number-input/style.css";
 import AdminLayout from "@/components/admin/AdminLayout";
 
 const Register = () => {
-	const [error, setError] = useState(null);
-	const [phoneNumber, setPhoneNumber] = useState("");
+	const [error, setError] = useState(null) as any;
+	const [phoneNumber, setPhoneNumber] = useState("") as any;
 
 	const router = useRouter();
 
@@ -18,8 +18,10 @@ const Register = () => {
 		register,
 		handleSubmit,
 		formState: { errors, isSubmitting }
-	} = useForm;
-	const signUp = async ({ email, password, fullName }) => {
+	} = useForm<CreateUserSchemaType>({
+		resolver: zodResolver(CreateUserSchema)
+	});
+	const signUp = async ({ email, password, fullName }: any) => {
 		if (navigator && navigator.onLine) {
 			const res = await fetch("http://localhost:4000/auth/register", {
 				method: "POST",
@@ -95,7 +97,7 @@ const Register = () => {
 						// 	setPhoneNumnber(e.target);
 						// }}
 						required={false}
-						// onChange={setPhoneNumber}
+						onChange={setPhoneNumber}
 					/>
 					<span className={styles.error}>
 						{" "}
