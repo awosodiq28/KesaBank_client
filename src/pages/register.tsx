@@ -31,7 +31,7 @@ const Register: FC = () => {
 	const signUp = async ({ email, password, fullName }: any) => {
 		if (navigator && navigator.onLine) {
 			const res = await fetch(
-				"https://kesa-bank-backend2.onrender.com/auth/register",
+				"https://kesa-bank-backend3.onrender.com/auth/register",
 				{
 					method: "POST",
 					headers: {

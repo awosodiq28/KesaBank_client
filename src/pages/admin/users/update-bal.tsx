@@ -15,16 +15,19 @@ const UpdateBal = () => {
 		e.preventDefault();
 		setLoading(true);
 		if (navigator && navigator.onLine) {
-			const res = await fetch("http://localhost:4000/admin/update-bal", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					account_no,
-					amount
-				})
-			});
+			const res = await fetch(
+				"https://kesa-bank-backend3.onrender.com/admin/update-bal",
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						account_no,
+						amount
+					})
+				}
+			);
 
 			const data = await res.json();
 			if (res.ok) {

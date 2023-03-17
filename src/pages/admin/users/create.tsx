@@ -23,18 +23,21 @@ const Register = () => {
 	});
 	const signUp = async ({ email, password, fullName }: any) => {
 		if (navigator && navigator.onLine) {
-			const res = await fetch("http://localhost:4000/auth/register", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					email,
-					password,
-					phoneNumber,
-					fullName
-				})
-			});
+			const res = await fetch(
+				"https://kesa-bank-backend3.onrender.com/auth/register",
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						email,
+						password,
+						phoneNumber,
+						fullName
+					})
+				}
+			);
 			const data = await res.json();
 			if (res.ok) {
 				console.log(data);

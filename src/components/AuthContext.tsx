@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }: any) => {
 		// if (navigator && navigator.onLine) {
 		setLoading(true);
 		const res = await fetch(
-			"https://kesa-bank-backend2.onrender.com/auth/login",
+			"https://kesa-bank-backend3.onrender.com/auth/login",
 			{
 				method: "POST",
 				headers: {
@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }: any) => {
 
 	const signout = async () => {
 		const res = await fetch(
-			"https://kesa-bank-backend2.onrender.com/auth/logout",
+			"https://kesa-bank-backend3.onrender.com/auth/logout",
 			{
 				method: "GET",
 				credentials: "include"
@@ -79,7 +79,7 @@ export const AuthProvider = ({ children }: any) => {
 	const checkUserLoggedIn = async () => {
 		console.log("effect");
 		const res = await fetch(
-			"https://kesa-bank-backend2.onrender.com/auth/me",
+			"https://kesa-bank-backend3.onrender.com/auth/me",
 			{
 				method: "GET",
 				credentials: "include"
@@ -98,7 +98,7 @@ export const AuthProvider = ({ children }: any) => {
 	const getAllUsers = async () => {
 		console.log("effect");
 		const res = await fetch(
-			"https://kesa-bank-backend2.onrender.com/user",
+			"https://kesa-bank-backend3.onrender.com/user",
 			{
 				method: "GET",
 				credentials: "include"
