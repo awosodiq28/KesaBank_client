@@ -17,3 +17,9 @@
 .contactForm {
 	text-align: center;
 }
+
+@media screen and (max-width: 800px) {
+	.flex {
+		display: block;
+	}
+}

@@ -7,7 +7,7 @@
 }
 .sect1 {
 	flex: 0 0 66.666667%;
-	max-width: 66.666667%;
+	max-width: 56.666667%;
 }
 .sect1 h2 {
 	display: block;
@@ -16,6 +16,12 @@
 .sect {
 	flex: 0 0 16.666667%;
 	max-width: 16.666667%;
+}
+
+.navLinks:hover,
+.navLinks a:hover {
+	color: var(--secondary-color) !important;
+	cursor: pointer !important;
 }
 
 .line {

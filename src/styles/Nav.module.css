@@ -90,6 +90,13 @@
 	display: table;
 	color: black;
 	white-space: nowrap;
+	cursor: pointer;
+}
+
+.navLinks:hover,
+.navLinks a:hover {
+	color: var(--secondary-color) !important;
+	cursor: pointer !important;
 }
 
 .navLinks a {
@@ -126,7 +133,7 @@
 
 	.navMenu {
 		display: flex;
-		width: 385px;
+		width: 480px;
 		position: static;
 		flex-direction: row;
 		align-items: baseline;

@@ -1,8 +1,10 @@
 import Link from "next/link";
 import React from "react";
+import { useRouter } from "next/router";
 import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
+	const router = useRouter();
 	return (
 		<footer className={styles.footer}>
 			<div className="resFlex">
@@ -19,9 +21,24 @@ const Footer = () => {
 					<h4>Quick Explore</h4>
 					<div className={styles.line}></div>
 					<ul>
-						<li>Contact</li>
-						<li>About</li>
-						<li>Services</li>
+						<li
+							className={styles.navLinks}
+							onClick={() => router.push("/#contact")}
+						>
+							Contact
+						</li>
+						<li
+							className={styles.navLinks}
+							onClick={() => router.push("/#about")}
+						>
+							About
+						</li>
+						<li
+							className={styles.navLinks}
+							onClick={() => router.push("/#services")}
+						>
+							Services
+						</li>
 					</ul>
 				</span>
 				<span className={styles.sect}>
@@ -29,14 +46,26 @@ const Footer = () => {
 					<div className={styles.line}></div>
 					<ul>
 						<li>
-							<Link href={"/privacy-policy"}>Privacy Policy</Link>
+							<Link
+								className={styles.navLinks}
+								href={"/privacy-policy"}
+							>
+								Privacy Policy
+							</Link>
 						</li>
 						<li>
-							<Link href={"/terms-condition"}>
+							<Link
+								className={styles.navLinks}
+								href={"/terms-condition"}
+							>
 								Terms & Condition
 							</Link>
 						</li>
-						<li>FAQ</li>
+						<li>
+							<Link className={styles.navLinks} href={"/faq"}>
+								FAQ
+							</Link>
+						</li>
 					</ul>
 				</span>
 			</div>

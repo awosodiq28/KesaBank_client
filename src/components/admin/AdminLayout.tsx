@@ -16,13 +16,10 @@ const AdminLayout = ({ children }: any) => {
 		getAllUsers();
 	}, []);
 	const checkUserLoggedIn = async () => {
-		const res = await fetch(
-			"https://kesa-bank-backend2.onrender.com/auth/me",
-			{
-				method: "GET",
-				credentials: "include"
-			}
-		);
+		const res = await fetch("http://localhost:4000/auth/me", {
+			method: "GET",
+			credentials: "include"
+		});
 		const data = await res.json();
 		if (res.ok) {
 			console.log({ acc_no: data.fullName });
