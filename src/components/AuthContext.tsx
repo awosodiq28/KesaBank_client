@@ -1,4 +1,4 @@
-import { createContext, useState, useLayoutEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 const AuthContext = createContext(null) as any;
@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }: any) => {
 		// if (navigator && navigator.onLine) {
 		setLoading(true);
 		const res = await fetch(
-			"https://kesa-bank-backend3.onrender.com/auth/login",
+			"https://kesa-bank-sigma.vercel.app/api/login",
 			{
 				method: "POST",
 				headers: {
@@ -53,9 +53,9 @@ export const AuthProvider = ({ children }: any) => {
 
 	const signout = async () => {
 		const res = await fetch(
-			"https://kesa-bank-backend3.onrender.com/auth/logout",
+			"https://kesa-bank-sigma.vercel.app/api/signout",
 			{
-				method: "GET",
+				method: "POST",
 				credentials: "include"
 			}
 		);
@@ -71,7 +71,7 @@ export const AuthProvider = ({ children }: any) => {
 		// }
 	};
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		checkUserLoggedIn();
 		console.log({ auth: user });
 	}, []);
@@ -79,7 +79,7 @@ export const AuthProvider = ({ children }: any) => {
 	const checkUserLoggedIn = async () => {
 		console.log("effect");
 		const res = await fetch(
-			"https://kesa-bank-backend3.onrender.com/auth/me",
+			"https://kesa-bank-sigma.vercel.app/api/verify",
 			{
 				method: "GET",
 				credentials: "include"
