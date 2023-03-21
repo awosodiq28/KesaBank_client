@@ -7,6 +7,7 @@ const UpdateBal = () => {
 	const [error, setError] = useState(null) as any;
 	const [amount, setAmount] = useState("");
 	const [account_no, setAccount_no] = useState("");
+	const [currency, setCurrency] = useState("$");
 	const [loading, setLoading] = useState(false);
 
 	const { getAllUsers, users }: any = useContext(AuthContext);
@@ -24,7 +25,8 @@ const UpdateBal = () => {
 					},
 					body: JSON.stringify({
 						account_no,
-						amount
+						amount,
+						currency
 					})
 				}
 			);
@@ -98,7 +100,22 @@ const UpdateBal = () => {
 						/>
 						{/* <button onClick={()=>}>+</button> */}
 						{/* <button>-</button> */}
-
+						<input
+							type="radio"
+							value="$"
+							name="currency"
+							checked={currency === "$"}
+							onClick={(e: any) => setCurrency(e.target.value)}
+						/>{" "}
+						$
+						<input
+							type="radio"
+							value="&euro;"
+							name="currency"
+							checked={currency === "&euro"}
+							onClick={(e: any) => setCurrency(e.target.value)}
+						/>{" "}
+						&euro;
 						<button
 							type="submit"
 							disabled={loading}
