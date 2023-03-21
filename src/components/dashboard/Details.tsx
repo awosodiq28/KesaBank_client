@@ -22,7 +22,10 @@ const Details = () => {
 			</div>
 			<div className={styles.con}>
 				<p>USD Balance</p>
-				<p>${user?.account_bal}</p>
+				<p>
+					{user?.currency}
+					{user?.account_bal}
+				</p>
 			</div>
 			<div className={styles.resFlex}>
 				<div>

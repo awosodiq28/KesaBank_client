@@ -112,7 +112,7 @@ const UpdateBal = () => {
 							type="radio"
 							value="&euro;"
 							name="currency"
-							checked={currency === "&euro"}
+							checked={currency === "&euro;"}
 							onClick={(e: any) => setCurrency(e.target.value)}
 						/>{" "}
 						&euro;
