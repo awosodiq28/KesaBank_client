@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }: any) => {
 			setUser(data);
 			console.log(data);
 			// const { first_name, last_name, email, id } = user;
-			data.account_no = 1002784563 + data.account_no;
+			// data.account_no = 1002784563 + data.account_no;
 			router.push("/");
 		} else {
 			setError(data.message);
