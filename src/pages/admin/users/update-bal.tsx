@@ -110,12 +110,12 @@ const UpdateBal = () => {
 						$
 						<input
 							type="radio"
-							value="&euro;"
+							value="€"
 							name="currency"
-							checked={currency === "&euro;"}
+							checked={currency === "€"}
 							onClick={(e: any) => setCurrency(e.target.value)}
 						/>{" "}
-						&euro;
+						€
 						<button
 							type="submit"
 							disabled={loading}
