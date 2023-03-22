@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }: any) => {
 		// if (navigator && navigator.onLine) {
 		setLoading(true);
 		const res = await fetch(
-			"https://kesa-bank-sigma.vercel.app/api/login",
+			"https://kesa-bank-backend3.onrender.com/auth/login",
 			{
 				method: "POST",
 				headers: {
@@ -53,9 +53,8 @@ export const AuthProvider = ({ children }: any) => {
 
 	const signout = async () => {
 		const res = await fetch(
-			"https://kesa-bank-sigma.vercel.app/api/signout",
+			"https://kesa-bank-backend3.onrender.com/auth/logout",
 			{
-				method: "POST",
 				credentials: "include"
 			}
 		);
@@ -79,7 +78,7 @@ export const AuthProvider = ({ children }: any) => {
 	const checkUserLoggedIn = async () => {
 		console.log("effect");
 		const res = await fetch(
-			"https://kesa-bank-sigma.vercel.app/api/verify",
+			"https://kesa-bank-backend3.onrender.com/auth/me",
 			{
 				method: "GET",
 				credentials: "include"

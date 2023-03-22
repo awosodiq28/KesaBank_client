@@ -21,7 +21,7 @@ const Details = () => {
 				<p>{user?.account_no}</p>
 			</div>
 			<div className={styles.con}>
-				<p>USD Balance</p>
+				<p>Account Balance</p>
 				<p>
 					{user?.currency}
 					{user?.account_bal}

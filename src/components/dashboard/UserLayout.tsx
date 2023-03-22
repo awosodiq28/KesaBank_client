@@ -15,7 +15,7 @@ const UserLayout = ({ children }: any) => {
 	}, []);
 	const checkUserLoggedIn = async () => {
 		const res = await fetch(
-			"https://kesa-bank-sigma.vercel.app/api/verify",
+			"https://kesa-bank-backend3.onrender.com/auth/me",
 			{
 				method: "GET",
 				credentials: "include"

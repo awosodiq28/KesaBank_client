@@ -100,22 +100,31 @@ const UpdateBal = () => {
 						/>
 						{/* <button onClick={()=>}>+</button> */}
 						{/* <button>-</button> */}
-						<input
-							type="radio"
-							value="$"
-							name="currency"
-							checked={currency === "$"}
-							onClick={(e: any) => setCurrency(e.target.value)}
-						/>{" "}
-						$
-						<input
-							type="radio"
-							value="€"
-							name="currency"
-							checked={currency === "€"}
-							onClick={(e: any) => setCurrency(e.target.value)}
-						/>{" "}
-						€
+						<div style={{ marginBottom: "20px" }}>
+							<label>
+								Select Currency:
+								<input
+									type="radio"
+									value="$"
+									name="currency"
+									checked={currency === "$"}
+									onClick={(e: any) =>
+										setCurrency(e.target.value)
+									}
+								/>{" "}
+								$
+								<input
+									type="radio"
+									value="€"
+									name="currency"
+									checked={currency === "€"}
+									onClick={(e: any) =>
+										setCurrency(e.target.value)
+									}
+								/>{" "}
+								€
+							</label>
+						</div>
 						<button
 							type="submit"
 							disabled={loading}
