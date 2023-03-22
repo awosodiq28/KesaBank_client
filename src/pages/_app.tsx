@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<AuthProvider>
 			<Head>
-				<title>Bank</title>
+				<title>Kesa Bank</title>
 			</Head>
 			<Layout>
 				<Component {...pageProps} />
