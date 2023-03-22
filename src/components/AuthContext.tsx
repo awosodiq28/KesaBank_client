@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }: any) => {
 
 	const login = async ({ email, password }: any) => {
 		// if (navigator && navigator.onLine) {
+		console.log(email);
 		setLoading(true);
 		const res = await fetch(
 			"https://kesa-bank-backend3.onrender.com/auth/login",
@@ -55,6 +56,7 @@ export const AuthProvider = ({ children }: any) => {
 		const res = await fetch(
 			"https://kesa-bank-backend3.onrender.com/auth/logout",
 			{
+				method: "POST",
 				credentials: "include"
 			}
 		);
