@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import styles from "../../styles/verify.module.css";
+import styles from "../../styles/Verify.module.css";
 import useImgInput from "@/helpers/useImgInput";
 import Image from "next/image";
 import { TbCloudUpload } from "react-icons/tb";
