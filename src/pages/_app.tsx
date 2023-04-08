@@ -9,6 +9,10 @@ export default function App({ Component, pageProps }: AppProps) {
 		<AuthProvider>
 			<Head>
 				<title>Kesa Bank</title>
+				<meta
+					http-equiv="Content-Security-Policy"
+					content="upgrade-insecure-requests"
+				></meta>
 			</Head>
 			<Layout>
 				<Component {...pageProps} />
