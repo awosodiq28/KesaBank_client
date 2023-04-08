@@ -11,6 +11,7 @@ import LoanCard from "@/components/LoanCard";
 import ContactForm from "@/components/ContactForm";
 import AuthContext from "@/components/AuthContext";
 import { useContext } from "react";
+import Verify from "@/components/dashboard/Verify";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function Home() {
 			<main>
 				{/* <h1>{user?.email}</h1> */}
 				<Hero />
+				{/* <Verify /> */}
 				<About />
 				<DepositCard />
 				<LoanCard />

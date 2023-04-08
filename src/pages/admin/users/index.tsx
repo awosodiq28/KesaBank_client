@@ -26,7 +26,7 @@ const Users = () => {
 							<tbody>
 								{users.map((user: any, i: any) => (
 									<tr key={i}>
-										<td></td>
+										<td>{i + 1}</td>
 										<td>{+user.account_no}</td>
 										<td>{user.fullName}</td>
 										<td>{user.email}</td>

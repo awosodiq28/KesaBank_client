@@ -11,10 +11,15 @@ const Details = () => {
 	return (
 		<div className={styles.details}>
 			<div className={styles.conp}>
-				<p className={styles.warning}>
-					Your account is not verified. Please submit all necessary
-					documents. <Link href={""}>Submit Documents</Link>
-				</p>
+				{!user?.verified && (
+					<p className={styles.warning}>
+						Your account is not verified. Please submit all
+						necessary documents.{" "}
+						<Link href={"/dashboard/verify-page"}>
+							Submit Documents
+						</Link>
+					</p>
+				)}
 			</div>
 			<div className={styles.con}>
 				<p>Account Number</p>

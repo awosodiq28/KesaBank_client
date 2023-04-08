@@ -29,36 +29,36 @@ const Register: FC = () => {
 	} = useForm<RegisterSchemaType>({ resolver: zodResolver(RegisterSchema) });
 
 	const signUp = async ({ email, password, fullName }: any) => {
-		if (navigator && navigator.onLine) {
-			const res = await fetch(
-				"https://kesa-bank-backend3.onrender.com/auth/register",
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify({
-						email,
-						password,
-						phoneNumber,
-						fullName
-					})
-				}
-			);
-			const data = await res.json();
-			if (res.ok) {
-				console.log(data);
-				router.push("/");
-			} else {
-				setError(data.message);
-				error ?? console.log(error);
+		// if (navigator && navigator.onLine) {
+		const res = await fetch(
+			"https://kesa-bank-backend3.onrender.com/auth/register",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					email,
+					password,
+					phoneNumber,
+					fullName
+				})
 			}
+		);
+		const data = await res.json();
+		if (res.ok) {
+			console.log(data);
+			router.push("/");
 		} else {
-			setError(
-				"You appear to be offline. Check your internet connection"
-			);
-			console.log("error");
+			setError(data.message);
+			error ?? console.log(error);
 		}
+		// } else {
+		// 	setError(
+		// 		"You appear to be offline. Check your internet connection"
+		// 	);
+		// 	console.log("error");
+		// }
 	};
 
 	return (

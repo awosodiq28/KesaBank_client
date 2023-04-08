@@ -23,9 +23,11 @@ const Dropdown = ({ children, top, content }: any) => {
 				}
 			>
 				{Object.keys(content).map((item, i) => (
-					<div key={i}>
-						<Link href={content[item]}>{item}</Link>
-					</div>
+					<Link href={"/dashboard"} className="m_0" key={i}>
+						<div>
+							<Link href={content[item]}>{item}</Link>
+						</div>
+					</Link>
 				))}
 			</div>
 		</>

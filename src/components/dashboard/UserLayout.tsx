@@ -11,6 +11,7 @@ const UserLayout = ({ children }: any) => {
 	const router = useRouter();
 
 	useEffect(() => {
+		setOpen(window.matchMedia("(min-width: 1050px)").matches);
 		checkUserLoggedIn();
 	}, []);
 	const checkUserLoggedIn = async () => {

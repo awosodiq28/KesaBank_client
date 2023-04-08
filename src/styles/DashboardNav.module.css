@@ -5,6 +5,7 @@
 	background-color: white;
 	margin-top: 20px;
 	border-radius: 5px;
+	z-index: 2;
 	box-shadow: 0 0 35px 0 rgb(154 161 171 / 15%);
 }
 .DashboardNav a {

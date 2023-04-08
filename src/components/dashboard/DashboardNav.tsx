@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styles from "../../styles/DashboardNav.module.css";
-import { MdSpaceDashboard, MdSend, MdAddCircleOutline } from "react-icons/md";
+import { MdSpaceDashboard, MdSend } from "react-icons/md";
 import {
 	FaExchangeAlt,
 	FaMoneyCheckAlt,
@@ -35,19 +35,25 @@ const DashboardNav = () => {
 					<p>Dashboard</p>
 				</div>
 			</Link>
-			<div className={styles.flex}>
-				<MdSend />
-				<p>Send Money</p>
-			</div>
-			<div className={styles.flex}>
-				<FaExchangeAlt />
-				<p>Exchange Money</p>
-			</div>
-			<div className={styles.flex}>
-				<FaMoneyCheckAlt />
-				{/* <RiFileTransferFill /> */}
-				<p>Wire Transfer</p>
-			</div>
+			<Link href={"/dashboard/verify-page"} className="m_0">
+				<div className={styles.flex}>
+					<MdSend />
+					<p>Send Money</p>
+				</div>
+			</Link>
+			<Link href={"/dashboard/verify-page"} className="m_0">
+				<div className={styles.flex}>
+					<FaExchangeAlt />
+					<p>Exchange Money</p>
+				</div>
+			</Link>
+			<Link href={"/dashboard/verify-page"} className="m_0">
+				<div className={styles.flex}>
+					<FaMoneyCheckAlt />
+					{/* <RiFileTransferFill /> */}
+					<p>Wire Transfer</p>
+				</div>
+			</Link>
 			{/* <div
 				className={!dropdown ? styles.flex : styles.dropdown}
 				onClick={() => setDropdown(!dropdown)}
@@ -106,10 +112,12 @@ const DashboardNav = () => {
 			>
 				<BiSupport />
 			</Dropdown>
-			<div className={styles.flex}>
-				<HiDocumentReport />
-				<p>Transactions Report</p>
-			</div>
+			<Link href={"/dashboard"} className="m_0">
+				<div className={styles.flex}>
+					<HiDocumentReport />
+					<p>Transactions Report</p>
+				</div>
+			</Link>
 		</span>
 	);
 };

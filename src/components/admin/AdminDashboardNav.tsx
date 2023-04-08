@@ -40,7 +40,7 @@ const AdminDashboardNav = () => {
 				content={{
 					"Add New": "/admin/users/create",
 					"All Users": "/admin/users",
-					"KYC Documents": "#",
+					"KYC Documents": "/admin/users/kyc",
 					"Verified Users": "#",
 					"Unverified Users": "#"
 				}}

@@ -8,7 +8,7 @@
 	display: flex;
 	grid-auto-flow: column;
 	gap: 20px;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: baseline;
 	min-height: 800px;
 }
@@ -119,6 +119,7 @@
 		width: unset;
 	}
 	.nav {
+		z-index: 2;
 		position: absolute;
 		transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
