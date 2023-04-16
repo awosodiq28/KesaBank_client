@@ -17,7 +17,7 @@ const UpdateBal = () => {
 		setLoading(true);
 		if (navigator && navigator.onLine) {
 			const res = await fetch(
-				'https://kesa-bank-backend3.onrender.com/admin/crAccBal',
+				'https://kesa-bank-backend3.onrender.com/admin/credit-acc',
 				{
 					method: 'POST',
 					headers: {
