@@ -1,3 +1,2 @@
-const API_URL = "https://kesa-bank-backend3.onrender.com";
-
-export { API_URL };
+// const API_URL = 'https://somercu.onrender.com';
+export const API_URL = 'http://localhost:3000/api';

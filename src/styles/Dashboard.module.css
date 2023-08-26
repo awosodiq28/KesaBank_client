@@ -8,7 +8,7 @@
 	display: flex;
 	grid-auto-flow: column;
 	gap: 20px;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: baseline;
 	min-height: 800px;
 }
@@ -40,7 +40,7 @@
 .details {
 	background-color: #fafbfe;
 	box-shadow: var(--shadow);
-	overflow-x: auto;
+	overflow-x: hidden;
 	overflow-y: hidden;
 	width: 100%;
 }
@@ -89,11 +89,107 @@
 	display: block;
 	margin-bottom: 15px;
 }
+.btn_modal {
+	width: 100%;
+	padding: 15px;
+	color: var(--color-grey);
+	position: relative;
+	top: 37px;
+	background: white;
+	border: none;
+	border-radius: 5px;
+	max-width: 200px;
+	margin: auto;
+	display: block;
+	margin-bottom: 15px;
+}
 
 .details table {
 	border-collapse: collapse;
 	width: 100%;
 	overflow: scroll;
+	display: block;
+	overflow: scroll;
+}
+
+.modal_pin {
+	position: relative;
+	transform: translate(-50%, -157%);
+	background: #e12454;
+	left: 50%;
+	width: 320px;
+	height: 400px;
+	padding: 31px;
+	border-radius: 5px;
+	z-index: 2000;
+	box-shadow: var(--shadow);
+}
+
+.editTransactionModal {
+	position: fixed;
+	transform: translate(-50%, -50%);
+	background: #fff;
+	left: 50%;
+	top: 48%;
+	width: 75vw;
+	padding: 1px 20px 68px;
+	height: 88%;
+	border-radius: 5px;
+	z-index: 2000;
+}
+
+.editTransactionModal form * {
+	font-size: 21px;
+	color: #000;
+	margin-bottom: 0;
+}
+
+.error {
+	color: red;
+	font-size: 12px;
+	height: 30px;
+}
+
+.cancel {
+	position: absolute;
+	margin: 0;
+	top: -2px;
+	left: 297px;
+	color: white;
+	border: solid;
+	padding: 3px 5px;
+}
+
+.transactionModalCancel {
+	position: absolute;
+	margin: 0;
+	top: 0%;
+	left: 98%;
+	border: solid;
+	padding: 3px 5px;
+	border-radius: 5px;
+	z-index: 10000000;
+	color: var(--color-grey);
+}
+
+.pin_error {
+	position: relative;
+	text-align: center;
+	top: 44px;
+	background: #e72613;
+	border-radius: 5px;
+	border: 1px solid white;
+	color: white;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #80808075;
+	z-index: 200;
 }
 
 .details td,
@@ -119,6 +215,7 @@
 		width: unset;
 	}
 	.nav {
+		z-index: 2;
 		position: absolute;
 		transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
