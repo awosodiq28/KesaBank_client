@@ -13,7 +13,7 @@ const TermsAndConditions = () => {
         <p>Welcome to KESA!</p>
         <p>
           These terms and conditions outline the rules and regulations for the
-          use of KESA&#39;s Website, located at https://cadencefcu.com.
+          use of KESA&#39;s Website, located at https://kesabank.com.
         </p>
         <p>
           By accessing this website we assume you accept these terms and

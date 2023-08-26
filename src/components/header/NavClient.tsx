@@ -56,7 +56,7 @@ const NavClient = () => {
           <Link href='/faq'>FAQ</Link>
         </li>
         <li className={styles.navLinks}>
-          {!authChecking || !user ? (
+          {!user ? (
             <Link href='/login' className={styles.btn}>
               log in
             </Link>
