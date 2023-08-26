@@ -11,7 +11,7 @@ const Dropdown = ({
 }: {
   children: ReactNode;
   top: string | null;
-  content: {};
+  content: Record<string, string>;
 }) => {
   const [dropdown, setDropdown] = useState(false);
 

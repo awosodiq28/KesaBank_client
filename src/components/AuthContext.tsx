@@ -19,7 +19,25 @@ interface IUser {
   currency: string;
 }
 
-const AuthContext = createContext(null) as any;
+interface IContext {
+  user: IUser | null;
+  users: IUser[] | null;
+  loading: boolean;
+  error: any;
+  authChecking: boolean;
+  login?: ({ email, password }: any) => Promise<void>;
+  signout?: () => Promise<void>;
+  checkUserLoggedIn?: () => Promise<void>;
+  getAllUsers?: () => Promise<void>;
+}
+
+const AuthContext = createContext<IContext>({
+  user: null,
+  loading: false,
+  error: null,
+  authChecking: true,
+  users: null
+});
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<IUser | null>(null);
@@ -121,7 +139,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         checkUserLoggedIn,
         getAllUsers
       }}>
-      {' '}
       {children}{' '}
     </AuthContext.Provider>
   );

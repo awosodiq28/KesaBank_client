@@ -36,9 +36,10 @@ export const getAllUsers = async () => {
     });
     // Filterm password_hash
     const list: any = [];
-    user.forEach((el) => {
+
+    user.forEach((el: Partial<(typeof user)[0]>) => {
       delete el.password_hash;
-      el.account_no += 1002784563;
+      el.account_no! += 1002784563;
       console.log(
         '🚀 ~ file: usersController.js:26 ~ user.forEach ~ el.account_bal:',
         el.account_bal

@@ -1,6 +1,5 @@
 import { PrismaClient as Prisma } from '@prisma/client';
 import { AES, enc } from 'crypto-js';
-import { sign } from 'jsonwebtoken';
 import { NextRequest, NextResponse } from 'next/server';
 import { LoginSchema, RegisterApiSchema } from '@/helpers/schema';
 import { signJwt, verifyJWT } from '@/helpers/token';
