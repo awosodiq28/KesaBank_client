@@ -16,7 +16,7 @@ export const registerUser = async (request: Request) => {
       data: {
         password_hash: AES.encrypt(
           password,
-          process.env.PASSWORD_SECRET!
+          'process.env.PASSWORD_SECRET!'
         ).toString(),
         phoneNumber: phoneNumber!.toString(),
         fullName,
@@ -72,7 +72,7 @@ export const login = async (request: NextRequest) => {
         const { password_hash, ...rest } = user;
         const unhashedPassword = AES.decrypt(
           password_hash,
-          process.env.PASSWORD_SECRET!
+          'process.env.PASSWORD_SECRET!'
         ).toString(enc.Utf8);
         if (password !== unhashedPassword) {
           return new NextResponse(

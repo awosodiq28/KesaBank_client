@@ -59,7 +59,7 @@ export const updateUser = async (
   if (req.password) {
     req.password = AES.encrypt(
       req.password,
-      process.env.PASSWORD_SECRET!
+      'process.env.PASSWORD_SECRET!'
     ).toString();
   }
   const { ...all } = req;

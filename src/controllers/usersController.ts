@@ -140,7 +140,7 @@ export const updateUser = async (request: Request) => {
   if (req.password) {
     req.password = AES.encrypt(
       req.password,
-      process.env.PASSWORD_SECRET!
+      'process.env.PASSWORD_SECRET!'
     ).toString();
   }
   const { ...all } = req;
@@ -152,7 +152,7 @@ export const updateUser = async (request: Request) => {
       },
       data: all
     });
-    return new NextResponse(JSON.stringify(updateUser), { status: 201 });
+    return new NextResponse(JSON.stringify(updatedUser), { status: 201 });
   } catch (err) {
     return new NextResponse(
       JSON.stringify({ err, message: 'Operation failed' }),
