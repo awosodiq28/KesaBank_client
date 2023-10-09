@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     console.log(data);
     setLoading(false);
     if (res.ok) {
-      setUser(user);
+      setUser(data);
       user?.isAdmin ? router.push('/dashboard') : router.push('/admin');
     } else {
       setError(data.message);
@@ -84,8 +84,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     if (res.ok) {
       setUser(null);
       router.push('/');
-    } else if (navigator && navigator.onLine) {
-      alert('You appear to be offline. Check your internet connection');
+    } else {
+      alert('Unable to logout. Something went wrong.');
     }
   };
 
