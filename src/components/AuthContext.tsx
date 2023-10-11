@@ -70,6 +70,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     if (res.ok) {
       setUser(data);
       user?.isAdmin ? router.push('/dashboard') : router.push('/admin');
+      router.refresh();
     } else {
       setError(data.message);
       error ?? console.log(error);
@@ -84,6 +85,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     if (res.ok) {
       setUser(null);
       router.push('/');
+      router.refresh();
     } else {
       alert('Unable to logout. Something went wrong.');
     }
@@ -122,6 +124,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     console.log('🚀 ~ file: AuthContext.tsx:56 ~ data:', data);
     if (res.ok) {
       setUsers(data);
+      router.refresh();
     } else {
       setUsers(null);
     }
