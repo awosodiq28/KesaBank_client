@@ -123,8 +123,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const data: IUser[] = await res.json();
     console.log('🚀 ~ file: AuthContext.tsx:56 ~ data:', data);
     if (res.ok) {
-      setUsers(data);
-      router.refresh();
+      setUsers([...data]);
+      // router.refresh();
     } else {
       setUsers(null);
     }

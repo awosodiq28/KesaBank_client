@@ -29,7 +29,7 @@ const Verify = () => {
     formData.append('upload_preset', 'u16vszak');
     formData.append('cloud_name', 'dyez5iyvm');
     const identityVerification = await fetch(
-      `http://api.cloudinary.com/v1_1/dyez5iyvm/image/upload`,
+      `https://api.cloudinary.com/v1_1/dyez5iyvm/image/upload`,
       {
         method: 'POST',
         body: formData
@@ -39,7 +39,7 @@ const Verify = () => {
     formData.append('upload_preset', 'u16vszak');
     formData.append('cloud_name', 'dyez5iyvm');
     const addressVerification = await fetch(
-      `http://api.cloudinary.com/v1_1/dyez5iyvm/image/upload`,
+      `https://api.cloudinary.com/v1_1/dyez5iyvm/image/upload`,
       {
         method: 'POST',
         body: formData

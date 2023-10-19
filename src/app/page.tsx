@@ -17,7 +17,6 @@ export default async function Home() {
       <Banner />
       <Services />
       <ContactForm />
-      <Spinner />
       <h1>We served over 500+ Customers</h1>
       <div className='line'></div>
     </>
