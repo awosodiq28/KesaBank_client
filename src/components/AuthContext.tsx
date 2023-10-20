@@ -59,6 +59,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         'Content-Type': 'application/json'
       },
       credentials: 'include',
+      cache: 'no-store',
+      next: { revalidate: 0 },
       body: JSON.stringify({
         email,
         password
@@ -80,7 +82,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const signout = async () => {
     const res = await fetch(`${API_URL}/auth/logout`, {
       method: 'POST',
-      credentials: 'include'
+      credentials: 'include',
+      cache: 'no-store',
+      next: { revalidate: 0 }
     });
     if (res.ok) {
       setUser(null);
@@ -100,7 +104,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     console.log('effect');
     const res = await fetch(`${API_URL}/auth/login`, {
       method: 'GET',
-      credentials: 'include'
+      credentials: 'include',
+      cache: 'no-store',
+      next: { revalidate: 0 }
     });
     const data = await res.json();
     console.log('🚀 ~ file: AuthContext.tsx:56 ~ data:', data);
@@ -118,7 +124,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     console.log('effect');
     const res = await fetch(`${API_URL}/user`, {
       method: 'GET',
-      credentials: 'include'
+      credentials: 'include',
+      cache: 'no-store',
+      next: { revalidate: 0 }
     });
     const data: IUser[] = await res.json();
     console.log('🚀 ~ file: AuthContext.tsx:56 ~ data:', data);
