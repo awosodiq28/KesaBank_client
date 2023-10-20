@@ -8,7 +8,32 @@ import Modal from '@/components/Modal';
 import { API_URL } from '@/helpers/vars';
 
 const Kyc = () => {
-  const { users, getAllUsers }: any = useContext(AuthContext);
+  interface kk {
+    password_hash: string;
+    fullName: string;
+    phoneNumber: string;
+    email: string;
+    isAdmin: boolean;
+    created_at: string;
+    account_no: number;
+    account_bal: number;
+    verified: boolean;
+    verifying: boolean;
+    pending_KYC: boolean;
+    verification_id: number;
+    currency: '$';
+    verification: {
+      id: number;
+      user_id: number;
+      identity_doc: string;
+      address_doc: string;
+    };
+  }
+
+  interface kkk extends Array<kk> {}
+
+  const { users, getAllUsers }: { users: unknown; getAllUsers?: any } =
+    useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [docImg, setDocImg] = useState('');
@@ -94,8 +119,8 @@ const Kyc = () => {
 
             // console.log(kycList);
             <tbody>
-              {users.map(
-                (user: any, i: any) =>
+              {(users as kkk).map(
+                (user, i: number) =>
                   user.verification && (
                     <tr key={i}>
                       <td></td>

@@ -5,8 +5,8 @@ import '@/styles/globals.css';
 import { AuthProvider } from '@/components/AuthContext';
 
 export const metadata: Metadata = {
-  title: 'SomersetCU',
-  description: 'SomersetCU Bank'
+  title: 'Kesa',
+  description: 'Kesa Bank'
 };
 
 export default function RootLayout({

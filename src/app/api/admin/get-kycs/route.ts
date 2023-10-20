@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 const prisma = new PrismaClient();
 
-export const PUT = async () => {
+export const GET = async () => {
   try {
     const kyc = await prisma.verification.findMany();
     return new NextResponse(JSON.stringify(kyc), { status: 201 });
