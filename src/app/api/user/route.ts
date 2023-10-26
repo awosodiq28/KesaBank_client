@@ -3,8 +3,8 @@ import { NextResponse } from 'next/server';
 
 const prisma = new PrismaClient();
 
-export const GET = async () => {
-  console.log('working');
+export const GET = async (request: Request) => {
+  console.log(request);
   try {
     const user = await prisma.user.findMany({
       include: {
