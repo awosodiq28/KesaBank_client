@@ -1,10 +1,12 @@
 import { PrismaClient } from '@prisma/client';
+import { url } from 'inspector';
+import { revalidatePath } from 'next/cache';
 import { NextResponse } from 'next/server';
 
 const prisma = new PrismaClient();
 
 export const GET = async (request: Request) => {
-  console.log(request);
+  console.log(request.url);
   try {
     const user = await prisma.user.findMany({
       include: {
@@ -14,6 +16,7 @@ export const GET = async (request: Request) => {
     });
     // Filter password_hash
     const list: any = [];
+    revalidatePath(request.url);
     return new NextResponse(JSON.stringify(user), { status: 201 });
   } catch (err) {
     return new NextResponse(

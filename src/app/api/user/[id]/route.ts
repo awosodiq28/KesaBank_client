@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { AES } from 'crypto-js';
+import { revalidatePath } from 'next/cache';
 import { NextResponse } from 'next/server';
 
 const prisma = new PrismaClient();
@@ -15,6 +16,7 @@ export const GET = async (request: Request) => {
         transactions: true
       }
     });
+    revalidatePath(request.url);
     return new NextResponse(JSON.stringify(user), { status: 201 });
   } catch (err) {
     return new NextResponse(
