@@ -14,8 +14,17 @@ export const GET = async (request: Request) => {
         transactions: true
       }
     });
+    const list = [];
+    user.forEach((el) => {
+      delete el.password_hash;
+      el.account_no += 1002784563;
+      console.log(
+        '🚀 ~ file: usersController.js:26 ~ user.forEach ~ el.account_bal:',
+        el.account_bal
+      );
+      list.push(el);
+    });
     // Filter password_hash
-    const list: any = [];
     revalidatePath(request.url);
     return new NextResponse(JSON.stringify(user), { status: 201 });
   } catch (err) {
