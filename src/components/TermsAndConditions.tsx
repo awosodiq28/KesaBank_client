@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import React, { useContext } from 'react';
-import styles from '@/styles/Policy.module.css';
+import Link from "next/link";
+import React, { useContext } from "react";
+import styles from "@/styles/Policy.module.css";
 
 const TermsAndConditions = () => {
   return (
@@ -10,15 +10,15 @@ const TermsAndConditions = () => {
       </div>
       <div>
         <h6>Terms and Conditions</h6>
-        <p>Welcome to KESA!</p>
+        <p>Welcome to CountyCU!</p>
         <p>
           These terms and conditions outline the rules and regulations for the
-          use of KESA&#39;s Website, located at https://kesabank.com.
+          use of CountyCU&#39;s Website, located at https://CountyCUbank.com.
         </p>
         <p>
           By accessing this website we assume you accept these terms and
-          conditions. Do not continue to use KESA if you do not agree to take
-          all of the terms and conditions stated on this page.
+          conditions. Do not continue to use CountyCU if you do not agree to
+          take all of the terms and conditions stated on this page.
         </p>
         <p>
           The following terminology applies to these Terms and Conditions,
@@ -39,38 +39,38 @@ const TermsAndConditions = () => {
         </p>
         <h6>Cookies</h6>
         <p>
-          Unless otherwise stated, KESA and/or its licensors own the
+          Unless otherwise stated, CountyCU and/or its licensors own the
           intellectual property rights for all material on Somerset Credit
           Union. All intellectual property rights are reserved. You may access
-          this from KESA for your own personal use subjected to restrictions set
-          in these terms and conditions.
+          this from CountyCU for your own personal use subjected to restrictions
+          set in these terms and conditions.
         </p>
         <p>You must not:</p>
         <ul>
-          <li>Republish material from KESA</li>
-          <li>Sell, rent or sub-license material from KESA</li>
-          <li>Reproduce, duplicate or copy material from KESA</li>
-          <li>Redistribute content from KESA</li>
+          <li>Republish material from CountyCU</li>
+          <li>Sell, rent or sub-license material from CountyCU</li>
+          <li>Reproduce, duplicate or copy material from CountyCU</li>
+          <li>Redistribute content from CountyCU</li>
         </ul>
         <p>
           This Agreement shall begin on the date hereof. Our Terms and
-          Conditions were created with the help of the{' '}
-          <Link href={''}>Terms And Conditions Generator.</Link>
+          Conditions were created with the help of the{" "}
+          <Link href={""}>Terms And Conditions Generator.</Link>
         </p>
         <p>
           Parts of this website offer an opportunity for users to post and
           exchange opinions and information in certain areas of the website.
-          KESA does not filter, edit, publish or review Comments prior to their
-          presence on the website. Comments do not reflect the views and
-          opinions of KESA,its agents and/or affiliates. Comments reflect the
-          views and opinions of the person who post their views and opinions. To
-          the extent permitted by applicable laws, KESA shall not be liable for
-          the Comments or for any liability, damages or expenses caused and/or
-          suffered as a result of any use of and/or posting of and/or appearance
-          of the Comments on this website.
+          CountyCU does not filter, edit, publish or review Comments prior to
+          their presence on the website. Comments do not reflect the views and
+          opinions of CountyCU,its agents and/or affiliates. Comments reflect
+          the views and opinions of the person who post their views and
+          opinions. To the extent permitted by applicable laws, CountyCU shall
+          not be liable for the Comments or for any liability, damages or
+          expenses caused and/or suffered as a result of any use of and/or
+          posting of and/or appearance of the Comments on this website.
         </p>
         <p>
-          KESA reserves the right to monitor all Comments and to remove any
+          CountyCU reserves the right to monitor all Comments and to remove any
           Comments which can be considered inappropriate, offensive or causes
           breach of these Terms and Conditions.
         </p>
@@ -96,9 +96,9 @@ const TermsAndConditions = () => {
           </li>
         </ul>
         <p>
-          You hereby grant KESA a non-exclusive license to use, reproduce, edit
-          and authorize others to use, reproduce and edit any of your Comments
-          in any and all forms, formats or media.
+          You hereby grant CountyCU a non-exclusive license to use, reproduce,
+          edit and authorize others to use, reproduce and edit any of your
+          Comments in any and all forms, formats or media.
         </p>
         <h6>Hyperlinking to our Content</h6>
         <p>
@@ -145,8 +145,8 @@ const TermsAndConditions = () => {
           that: (a) the link would not make us look unfavorably to ourselves or
           to our accredited businesses; (b) the organization does not have any
           negative records with us; (c) the benefit to us from the visibility of
-          the hyperlink compensates the absence of KESA; and (d) the link is in
-          the context of general resource information.
+          the hyperlink compensates the absence of CountyCU; and (d) the link is
+          in the context of general resource information.
         </p>
         <p>
           These organizations may link to our home page so long as the link: (a)
@@ -157,11 +157,11 @@ const TermsAndConditions = () => {
         <p>
           If you are one of the organizations listed in paragraph 2 above and
           are interested in linking to our website, you must inform us by
-          sending an e-mail to KESA. Please include your name, your organization
-          name, contact information as well as the URL of your site, a list of
-          any URLs from which you intend to link to our Website, and a list of
-          the URLs on our site to which you would like to link. Wait 2-3 weeks
-          for a response.
+          sending an e-mail to CountyCU. Please include your name, your
+          organization name, contact information as well as the URL of your
+          site, a list of any URLs from which you intend to link to our Website,
+          and a list of the URLs on our site to which you would like to link.
+          Wait 2-3 weeks for a response.
         </p>
         <p>Approved organizations may hyperlink to our Website as follows:</p>
         <ul>
@@ -174,8 +174,8 @@ const TermsAndConditions = () => {
           </li>
         </ul>
         <p>
-          No use of KESA&#39;s logo or other artwork will be allowed for linking
-          absent a trademark license agreement.
+          No use of CountyCU&#39;s logo or other artwork will be allowed for
+          linking absent a trademark license agreement.
         </p>
         <h6>iFrames</h6>
         <p>

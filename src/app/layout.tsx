@@ -1,21 +1,21 @@
-import Footer from '@/components/Footer';
-import Nav from '@/components/header/Nav';
-import { Metadata } from 'next';
-import '@/styles/globals.css';
-import { AuthProvider } from '@/components/AuthContext';
+import Footer from "@/components/Footer";
+import Nav from "@/components/header/Nav";
+import { Metadata } from "next";
+import "@/styles/globals.css";
+import { AuthProvider } from "@/components/AuthContext";
 
 export const metadata: Metadata = {
-  title: 'Kesa',
-  description: 'Kesa Bank'
+  title: "CountyCU",
+  description: "CountyCU Bank",
 };
 
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body>
         <AuthProvider>
           <header>

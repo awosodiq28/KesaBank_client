@@ -1,13 +1,13 @@
-import React from 'react';
-import styles from '@/styles/ContactForm.module.css';
-import { RiCustomerService2Fill } from 'react-icons/ri';
-import { MdEmail, MdLocationOn } from 'react-icons/md';
+import React from "react";
+import styles from "@/styles/ContactForm.module.css";
+import { RiCustomerService2Fill } from "react-icons/ri";
+import { MdEmail, MdLocationOn } from "react-icons/md";
 
 const ContactForm = () => {
   return (
-    <section className={styles.contactForm} id='contact'>
+    <section className={styles.contactForm} id="contact">
       <h1>Contact Us</h1>
-      <div className='line'></div>
+      <div className="line"></div>
       <div className={styles.boxCon}>
         <div className={styles.box}>
           <span className={styles.icon}>
@@ -22,8 +22,8 @@ const ContactForm = () => {
           </span>
           <h4>Email Us</h4>
 
-          <a href='mailto:kesabank@accountant.com'>
-            {/* <p>kesabank@accountant.com</p> */}
+          <a href="mailto:CountyCUbank@accountant.com">
+            {/* <p>CountyCUbank@accountant.com</p> */}
           </a>
         </div>
         <div className={styles.box}>
@@ -36,15 +36,15 @@ const ContactForm = () => {
       <p>Write us a message</p>
       <form>
         <div className={styles.flex}>
-          <input type='text' placeholder='Your Name' />
-          <input type='email' placeholder='Your Email' />
+          <input type="text" placeholder="Your Name" />
+          <input type="email" placeholder="Your Email" />
         </div>
         <div className={styles.flex}>
-          <input type='text' placeholder='Your Phone Number' />
-          <input type='text' placeholder='Subject' />
+          <input type="text" placeholder="Your Phone Number" />
+          <input type="text" placeholder="Subject" />
         </div>
-        <textarea placeholder='Your Message'></textarea>
-        <button type='submit'>SEND MESSAGE</button>
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">SEND MESSAGE</button>
       </form>
     </section>
   );

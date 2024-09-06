@@ -20,7 +20,7 @@ const Nav = () => {
       <div className={styles.navbarItems}>
         <span className={styles.navbarLogo}>
           <Link href="/">
-            <h2 className="logo">KESA</h2>
+            <h2 className="logo">CountyCU</h2>
           </Link>
         </span>
         <div className={styles.menuIcon} onClick={() => setHam(!ham)}>
