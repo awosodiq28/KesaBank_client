@@ -1,27 +1,29 @@
-'use client';
-import React, { useState, useContext, useEffect } from 'react';
-import styles from '@/styles/Dashboard.module.css';
-import AuthContext from '@/components/AuthContext';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+"use client";
+import React, { useState, useContext } from "react";
+import styles from "@/styles/Dashboard.module.css";
+import AuthContext from "@/components/AuthContext";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
-import { UpdateBalSchema, UpdateBalSchemaType } from '../helpers/schema';
-import { API_URL } from '@/helpers/vars';
+import { UpdateBalSchema, UpdateBalSchemaType } from "../helpers/schema";
+import { API_URL } from "@/helpers/vars";
+import { useRouter } from "next/navigation";
 
 const UpdateBal = ({ api, CROrDR }: { api: string; CROrDR: string }) => {
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isSubmitting }
+    reset,
+    formState: { errors, isSubmitting },
   } = useForm<UpdateBalSchemaType>({
-    mode: 'onTouched',
-    resolver: zodResolver(UpdateBalSchema)
+    mode: "onTouched",
+    resolver: zodResolver(UpdateBalSchema),
   });
 
-  const [error, setError] = useState('');
-  const watchAccNo = watch('account_no');
-
+  const [error, setError] = useState("");
+  const watchAccNo = watch("account_no");
+  const router = useRouter();
   console.log(errors);
 
   // useEffect(() => {
@@ -37,30 +39,30 @@ const UpdateBal = ({ api, CROrDR }: { api: string; CROrDR: string }) => {
   const updateBal = async ({
     account_no,
     amount,
-    currency
+    currency,
   }: // date
   UpdateBalSchemaType) => {
     // const adjustedTime = new Date(date);
     // const created_at = adjustedTime.toISOString();
     const res = await fetch(`${API_URL}/admin/${api}`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         account_no,
         amount,
         currency,
         // created_at,
-        fullName: users?.[acc_pos]?.fullName
-      })
+        fullName: users?.[acc_pos]?.fullName,
+      }),
     });
 
     const data = await res.json();
     if (res.ok) {
       getAllUsers();
-
-      console.log(data);
+      alert("user account balance has been updated");
+      reset();
     } else {
       setError(data.message);
       error ?? console.log(error);
@@ -84,13 +86,13 @@ const UpdateBal = ({ api, CROrDR }: { api: string; CROrDR: string }) => {
   return (
     <div className={styles.details}>
       <div className={`${styles.con} ${styles.over}`}>
-        <h6 className='tac'>{CROrDR} Account Balance</h6>
-        <form onSubmit={handleSubmit(updateBal)} method='POST'>
+        <h6 className="tac">{CROrDR} Account Balance</h6>
+        <form onSubmit={handleSubmit(updateBal)} method="POST">
           <input
-            type='number'
-            placeholder='Account Number'
+            type="number"
+            placeholder="Account Number"
             // onChange={(e) => setAccount_no(e.target.value)}
-            {...register('account_no', { valueAsNumber: true })}
+            {...register("account_no", { valueAsNumber: true })}
           />
           <span className={styles.error}> {errors.account_no?.message}</span>
           <div>
@@ -101,7 +103,7 @@ const UpdateBal = ({ api, CROrDR }: { api: string; CROrDR: string }) => {
                   Current Account Balance:
                   {users?.[acc_pos]?.account_bal?.toLocaleString(undefined, {
                     minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
+                    maximumFractionDigits: 2,
                   })}
                 </p>
               </div>
@@ -110,21 +112,21 @@ const UpdateBal = ({ api, CROrDR }: { api: string; CROrDR: string }) => {
             )}
           </div>
           <input
-            type='number'
-            placeholder='Amount'
-            {...register('amount', { valueAsNumber: true })}
+            type="number"
+            placeholder="Amount"
+            {...register("amount", { valueAsNumber: true })}
           />
           <span className={styles.error}> {errors.amount?.message}</span>
-          <div style={{ marginBottom: '20px' }}>
+          <div style={{ marginBottom: "20px" }}>
             <label>
               Select Currency:
-              <input type='radio' {...register('currency')} value='$' /> $
-              <input type='radio' value='€' {...register('currency')} /> €
+              <input type="radio" {...register("currency")} value="$" /> $
+              <input type="radio" value="€" {...register("currency")} /> €
             </label>
           </div>
           <span className={styles.error}> {errors.currency?.message}</span>
           {/* <input type='datetime-local' {...register('date')} /> */}
-          <button type='submit' disabled={isSubmitting} className={styles.btn}>
+          <button type="submit" disabled={isSubmitting} className={styles.btn}>
             Submit
           </button>
         </form>
