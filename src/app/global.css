@@ -1,9 +1,9 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -45,7 +45,7 @@
   --card-border-rgb: 131, 134, 135;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -76,7 +76,7 @@
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
   }
-}
+} */
 
 *,
 ::after,
@@ -90,7 +90,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   line-height: 1.6;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
   color: #6f8ba4;
@@ -119,7 +119,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 700;
   color: #223a66;
 }
@@ -185,15 +185,15 @@ ul {
 li {
   list-style: none;
 }
-input[type='text'],
-input[type='password'],
-input[type='email'],
-input[type='number'],
-input[type='datetime-local'],
-input[type='text']:focus,
-input[type='password']:focus,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="datetime-local"],
+input[type="text"]:focus,
+input[type="password"]:focus,
 select,
-input[type='email']:focus {
+input[type="email"]:focus {
   border: 1px solid #eef2f6;
   margin-bottom: 15px;
   width: 100%;
@@ -231,7 +231,7 @@ button:disabled {
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.5px;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   text-transform: uppercase;
   z-index: 20;
 }
@@ -288,7 +288,7 @@ button:disabled {
   left: 0;
   right: 0;
   top: -33px;
-  content: '';
+  content: "";
   width: 100px;
   height: 4px;
   background-color: var(--secondary-color);

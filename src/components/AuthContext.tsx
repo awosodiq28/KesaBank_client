@@ -1,8 +1,14 @@
-'use client';
+"use client";
 
-import { createContext, useState, useEffect, ReactNode } from 'react';
-import { useRouter } from 'next/navigation';
-import { API_URL } from '@/helpers/vars';
+import {
+  createContext,
+  useState,
+  useEffect,
+  ReactNode,
+  useReducer,
+} from "react";
+import { useRouter } from "next/navigation";
+import { API_URL } from "@/helpers/vars";
 
 interface IUser {
   email: string;
@@ -36,7 +42,7 @@ const AuthContext = createContext<IContext>({
   loading: false,
   error: null,
   authChecking: true,
-  users: null
+  users: null,
 });
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
@@ -48,31 +54,34 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const router = useRouter();
 
-  // useEffect(() => checkUserLoggedIn(), []);
-
   const login = async ({ email, password }: any) => {
     console.log(email);
     setLoading(true);
     const res = await fetch(`${API_URL}/auth/login`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      credentials: 'include',
-      cache: 'no-store',
+      credentials: "include",
+      cache: "no-store",
       next: { revalidate: 0 },
       body: JSON.stringify({
         email,
-        password
-      })
+        password,
+      }),
     });
     const data = await res.json();
     console.log(data);
     setLoading(false);
-    if (res.ok) {
-      setUser(data);
-      user?.isAdmin ? router.push('/dashboard') : router.push('/admin');
+    if (res?.ok) {
+      setUser({ ...data });
       router.refresh();
+      // user?.isAdmin ? router.push("/dashboard") : router.push("/admin");
+      if (user?.isAdmin) {
+        window.location.href = "/dashboard";
+      } else {
+        window.location.href = "/admin";
+      }
     } else {
       setError(data.message);
       error ?? console.log(error);
@@ -81,17 +90,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signout = async () => {
     const res = await fetch(`${API_URL}/auth/logout`, {
-      method: 'POST',
-      credentials: 'include',
-      cache: 'no-store',
-      next: { revalidate: 0 }
+      method: "POST",
+      credentials: "include",
+      cache: "no-store",
+      next: { revalidate: 0 },
     });
     if (res.ok) {
       setUser(null);
-      router.push('/');
+      console.log("na here");
+      router.push("/");
       router.refresh();
     } else {
-      alert('Unable to logout. Something went wrong.');
+      alert("Unable to logout. Something went wrong.");
     }
   };
 
@@ -101,35 +111,35 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const checkUserLoggedIn = async () => {
-    console.log('effect');
+    console.log("effect");
     const res = await fetch(`${API_URL}/auth/login`, {
-      method: 'GET',
-      credentials: 'include',
-      cache: 'no-store',
-      next: { revalidate: 0 }
+      method: "GET",
+      credentials: "include",
+      cache: "no-store",
+      next: { revalidate: 0 },
     });
     const data = await res.json();
-    console.log('🚀 ~ file: AuthContext.tsx:56 ~ data:', data);
+    console.log("🚀 ~ file: AuthContext.tsx:56 ~ data:", data);
     if (res.ok) {
       console.log({ acc_no: data.account_no });
       setUser(data);
       setAuthChecking(false);
     } else {
-      console.log('failed');
+      console.log("failed");
       setUser(null);
       setAuthChecking(false);
     }
   };
   const getAllUsers = async () => {
-    console.log('effect');
+    console.log("effect");
     const res = await fetch(`${API_URL}/user`, {
-      method: 'GET',
-      credentials: 'include',
-      cache: 'no-store',
-      next: { revalidate: 0 }
+      method: "GET",
+      credentials: "include",
+      cache: "no-store",
+      next: { revalidate: 0 },
     });
     const data: IUser[] = await res.json();
-    console.log('🚀 ~ file: AuthContext.tsx:56 ~ data:', data);
+    console.log("🚀 ~ file: AuthContext.tsx:56 ~ data:", data);
     if (res.ok) {
       setUsers([...data]);
       // router.refresh();
@@ -148,9 +158,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         login,
         signout,
         checkUserLoggedIn,
-        getAllUsers
-      }}>
-      {children}{' '}
+        getAllUsers,
+      }}
+    >
+      {children}{" "}
     </AuthContext.Provider>
   );
 };
