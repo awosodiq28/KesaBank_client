@@ -28,10 +28,10 @@ const SendMoney = () => {
 
   const checkPin = (e: any) => {
     e.preventDefault();
-    if (pin !== "2345678" && trial != 1) {
-      setError("The pin you entered is incorrect");
-    } else {
+    if (pin == "oIN*#2eSEuq55" && trial != 1) {
       setTrial(trial + 1);
+    } else {
+      setError("The pin you entered is incorrect");
     }
   };
 
@@ -95,21 +95,56 @@ const SendMoney = () => {
       </div>
       <Modal openModal={openModal}>
         <div className={styles.modal_pin}>
-          <button className={styles.cancel} onClick={() => setOpenModal(false)}>
+          {/* <button className={styles.cancel} onClick={() => setOpenModal(false)}>
             X
-          </button>
+          </button> */}
           {trial == 1 ? (
-            <h6 className="tac" style={{ color: "wheat" }}>
-              Enter your COT code
-            </h6>
+            <div className="">
+              <h6
+                style={{
+                  backgroundColor: "#de9e27",
+                  color: "white",
+                  paddingLeft: "10px",
+                  paddingBlock: "8px",
+                  fontSize: "20px",
+                }}
+              >
+                Funds Transfer
+              </h6>
+              <p style={{ paddingLeft: "10px" }}>
+                Please enter the funds transfer COT code for this transfer
+              </p>
+            </div>
           ) : (
-            <h6 className="tac" style={{ color: "wheat" }}>
-              Enter Your IMF code
-            </h6>
+            <div className="">
+              <h6
+                style={{
+                  backgroundColor: "#de9e27",
+                  color: "white",
+                  paddingLeft: "10px",
+                  paddingBlock: "8px",
+                  fontSize: "20px",
+                }}
+              >
+                Funds Transfer
+              </h6>
+              <p style={{ paddingLeft: "10px" }}>Please enter IMF code</p>
+            </div>
           )}
-          <form onSubmit={checkPin}>
+          <form
+            onSubmit={checkPin}
+            className="flex gap-3 items-center"
+            style={{
+              display: "flex",
+              gap: 12,
+              alignItems: "baseline",
+              paddingInline: "10px",
+              marginBottom: "12px",
+            }}
+          >
             <input
               required
+              placeholder="COT Code"
               type="password"
               value={pin}
               onChange={(e) => {
@@ -117,11 +152,58 @@ const SendMoney = () => {
                 setError("");
               }}
             />
-            <button type="submit" className={styles.btn_modal}>
-              Submit
+            <button
+              type="submit"
+              style={{
+                paddingInline: "16px",
+                paddingBlock: "12px",
+                fontSize: "16px",
+                color: "white",
+                backgroundColor: "#0f80df",
+                borderRadius: "4px",
+                border: 0,
+              }}
+            >
+              Authenticate
             </button>
-            {error && <p className={styles.pin_error}>{error}</p>}
           </form>
+          {error && (
+            <i
+              // className={styles.pin_error}
+              style={{
+                display: "block",
+                width: "fitContent",
+                color: "red",
+                marginLeft: "10px",
+              }}
+            >
+              {error}
+            </i>
+          )}
+          <div
+            style={{
+              paddingInline: "16px",
+              display: "flex",
+              marginRight: "10px",
+              justifyContent: "end",
+              marginBottom: "25px",
+            }}
+          >
+            <button
+              onClick={() => setOpenModal(false)}
+              style={{
+                paddingInline: "16px",
+                paddingBlock: "12px",
+                fontSize: "16px",
+                color: "white",
+                backgroundColor: "#df3b0f",
+                borderRadius: "4px",
+                border: 0,
+              }}
+            >
+              Cancel funds transfer
+            </button>
+          </div>
         </div>
       </Modal>
     </div>

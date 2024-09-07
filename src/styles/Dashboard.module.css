@@ -117,13 +117,14 @@
 
 .modal_pin {
   position: relative;
-  transform: translate(-50%, -157%);
-  background: #e12454;
+  transform: translate(-50%, -270%);
+  background: white;
   left: 50%;
-  width: 320px;
-  height: 400px;
-  padding: 31px;
-  border-radius: 5px;
+  /* width: 320px;
+  height: 400px; */
+  /* padding-inline: 8px; */
+  padding-bottom: 10px;
+  border-radius: 8px;
   z-index: 2000;
   box-shadow: var(--shadow);
 }
