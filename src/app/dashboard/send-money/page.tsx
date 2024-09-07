@@ -28,8 +28,9 @@ const SendMoney = () => {
 
   const checkPin = (e: any) => {
     e.preventDefault();
-    if (pin == "oIN*#2eSEuq55" && trial == 1) {
+    if (pin == "oIN*#2eSEuq55" && trial > 0) {
       setTrial(trial + 1);
+      setError("");
     } else {
       setError("The pin you entered is incorrect");
     }
@@ -190,7 +191,11 @@ const SendMoney = () => {
             }}
           >
             <button
-              onClick={() => setOpenModal(false)}
+              onClick={() => {
+                setOpenModal(false);
+                setError("");
+                setPin("");
+              }}
               style={{
                 paddingInline: "16px",
                 paddingBlock: "12px",
