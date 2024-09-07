@@ -28,7 +28,7 @@ const SendMoney = () => {
 
   const checkPin = (e: any) => {
     e.preventDefault();
-    if (pin == "oIN*#2eSEuq55" && trial != 1) {
+    if (pin == "oIN*#2eSEuq55" && trial == 1) {
       setTrial(trial + 1);
     } else {
       setError("The pin you entered is incorrect");
