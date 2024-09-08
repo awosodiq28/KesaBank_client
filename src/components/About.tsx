@@ -18,8 +18,8 @@ const About = () => {
           />
         </div>
         <div className={styles.about}>
-          <h2>About Us</h2>
-          <p>
+          <h2 className="mb-5">About Us</h2>
+          <p className="mb-7">
             CountyCU is a micro banking system. We offer different types of
             financial services to our customers all over the world. We have
             multiple branches to provide different services such as Loan, Wire

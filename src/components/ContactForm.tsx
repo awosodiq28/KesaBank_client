@@ -8,15 +8,15 @@ const ContactForm = () => {
     <section className={styles.contactForm} id="contact">
       <h1>Contact Us</h1>
       <div className="line"></div>
-      <div className={styles.boxCon}>
-        <div className={styles.box}>
+      <div className="flex gap-7 my-9 flex-col md:flex-row">
+        <div className="flex flex-col justify-center items-center w-full shadow-lg py-7 gap-3 px-4">
           <span className={styles.icon}>
             <RiCustomerService2Fill />
           </span>
           <h4>Call Us</h4>
           <p></p>
         </div>
-        <div className={styles.box}>
+        <div className="flex flex-col justify-center items-center w-full shadow-lg py-7 gap-3 px-4">
           <span className={styles.icon}>
             <MdEmail />
           </span>
@@ -26,14 +26,14 @@ const ContactForm = () => {
             {/* <p>CountyCUbank@accountant.com</p> */}
           </a>
         </div>
-        <div className={styles.box}>
+        <div className="flex flex-col justify-center items-center w-full shadow-lg py-7 gap-3 px-4">
           <span className={styles.icon}>
             <MdLocationOn />
           </span>
           <h4>Location</h4>
         </div>
       </div>
-      <p>Write us a message</p>
+      <p className="mt-10 font-medium text-xl mb-3">Write us a message</p>
       <form>
         <div className={styles.flex}>
           <input type="text" placeholder="Your Name" />

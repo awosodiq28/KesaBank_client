@@ -28,7 +28,7 @@ const SendMoney = () => {
 
   const checkPin = (e: any) => {
     e.preventDefault();
-    if (pin == "oIN*#2eSEuq55" && trial > 0) {
+    if (pin == "771947" && trial > 0) {
       setTrial(trial + 1);
       setError("");
     } else {
