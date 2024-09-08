@@ -32,7 +32,10 @@ const SendMoney = () => {
       setTrial(trial + 1);
       setError("");
     } else {
-      setError("The pin you entered is incorrect");
+      setError(
+        `The Code you entered is incorrect. 
+        Don't have COT code? Please contact us via customercare@countycu.com`
+      );
     }
   };
 
@@ -168,19 +171,7 @@ const SendMoney = () => {
               Authenticate
             </button>
           </form>
-          {error && (
-            <i
-              // className={styles.pin_error}
-              style={{
-                display: "block",
-                width: "fitContent",
-                color: "red",
-                marginLeft: "10px",
-              }}
-            >
-              {error}
-            </i>
-          )}
+          {error && <i className="mb-4 block text-red-800 ml-2.5">{error}</i>}
           <div
             style={{
               paddingInline: "16px",
