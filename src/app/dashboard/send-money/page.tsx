@@ -28,14 +28,14 @@ const SendMoney = () => {
 
   const checkPin = (e: any) => {
     e.preventDefault();
-    if (pin == "771947" && trial > 0) {
+    if (pin == "771947" && trial == 1) {
       setTrial(trial + 1);
       setError("");
+    } else if (pin == "USA 77541" && trial == 2) {
+      setOpenModal(false);
+      alert("Transaction pending");
     } else {
-      setError(
-        `The Code you entered is incorrect. 
-        Don't have COT code? Please contact us via customercare@countycu.com`
-      );
+      setError("The Code you entered is incorrect.");
     }
   };
 
@@ -172,6 +172,13 @@ const SendMoney = () => {
             </button>
           </form>
           {error && <i className="mb-4 block text-red-800 ml-2.5">{error}</i>}
+          {trial == 1 && (
+            <p className="mb-4 text-teal-800 ml-2.5">
+              Don't have COT code? Please contact us via
+              customercare@countycu.com
+            </p>
+          )}
+
           <div
             style={{
               paddingInline: "16px",
@@ -184,6 +191,7 @@ const SendMoney = () => {
             <button
               onClick={() => {
                 setOpenModal(false);
+                setTrial(1);
                 setError("");
                 setPin("");
               }}
