@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "@/styles/Dashboard.module.css";
+// import { toast } from "@/components/hooks/use-toast";
 import Modal from "@/components/Modal";
 import { bankList } from "@/helpers/banksList";
 import {
@@ -16,6 +17,23 @@ import { MessageSquareWarning } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 const SendMoney = () => {
   const [account_no, setAccount_no] = useState("");
@@ -28,6 +46,39 @@ const SendMoney = () => {
   const [trial, setTrial] = useState(0);
   const [isLoading, setIsloading] = useState(false);
   const [imf, setImf] = useState(false);
+  const [showPin, setShowPin] = useState(false);
+
+  const FormSchema = z.object({
+    pin: z.string().min(5, {
+      message: "Your pin must be 5 digits.",
+    }),
+  });
+
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      pin: "",
+    },
+  });
+
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    // toast({
+    //   title: "You submitted the following values:",
+    //   description: (
+    //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+    //       <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+    //     </pre>
+    //   ),
+    // });
+    console.log({ pin: data });
+    if (data.pin == "44774") {
+      setTrial(1);
+      setOpenModal(true);
+    } else {
+      alert("Wrong pin");
+    }
+    // 44774
+  }
 
   const sendMoney = (e: any) => {
     setIsloading(true);
@@ -38,13 +89,8 @@ const SendMoney = () => {
   };
 
   function whatever() {
-    if (trial < 1) {
-      alert("Account number not found. \nPlease input correct account number");
-      setTrial(1);
-    } else {
-      // setError('The pin you entered is incorrect');
-      setOpenModal(true);
-    }
+    setShowPin(true);
+    // alert("Account number not found. \nPlease input correct account number");
   }
 
   const checkPin = (e: any) => {
@@ -263,6 +309,48 @@ const SendMoney = () => {
                 Cancel funds transfer
               </button>
             </DialogFooter>
+          </DialogContent>
+        </Dialog>
+        <Dialog open={showPin} onOpenChange={setShowPin}>
+          <DialogContent className="">
+            <DialogHeader>
+              {/* <DialogTitle>Funds Transfer</DialogTitle> */}
+              <DialogDescription>
+                <Form {...form}>
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="w-2/3 space-y-6"
+                  >
+                    <FormField
+                      control={form.control}
+                      name="pin"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>PIN</FormLabel>
+                          <FormControl>
+                            <InputOTP maxLength={5} {...field}>
+                              <InputOTPGroup>
+                                <InputOTPSlot index={0} />
+                                <InputOTPSlot index={1} />
+                                <InputOTPSlot index={2} />
+                                <InputOTPSlot index={3} />
+                                <InputOTPSlot index={4} />
+                              </InputOTPGroup>
+                            </InputOTP>
+                          </FormControl>
+                          <FormDescription>
+                            Please enter your transaction pin.
+                          </FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <Button type="submit">Submit</Button>
+                  </form>
+                </Form>
+              </DialogDescription>
+            </DialogHeader>
           </DialogContent>
         </Dialog>
       </div>
