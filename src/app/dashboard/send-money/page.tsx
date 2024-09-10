@@ -174,7 +174,7 @@ const SendMoney = () => {
               >
                 <input
                   required
-                  placeholder="COT Code"
+                  placeholder={trial == 1 ? "COT Code" : "IMF code"}
                   type="password"
                   value={pin}
                   onChange={(e) => {
