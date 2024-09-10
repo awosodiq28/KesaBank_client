@@ -95,14 +95,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       cache: "no-store",
       next: { revalidate: 0 },
     });
-    if (res.status < 400) {
-      setUser(null);
-      console.log("na here");
-      router.push("/");
-      router.refresh();
-    } else {
-      alert("Unable to logout. Something went wrong.");
-    }
+    setUser(null);
+    router.push("/");
+    router.refresh();
   };
 
   useEffect(() => {
