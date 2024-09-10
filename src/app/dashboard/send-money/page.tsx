@@ -187,12 +187,12 @@ const SendMoney = () => {
             {error && <i className="mb-4 block text-red-800 ml-2.5">{error}</i>}
             {trial == 1 ? (
               <p className="mb-4 text-teal-800 ml-2.5">
-                Don't have COT code? Please contact us via
+                Don&apos;t have COT code? Please contact us via
                 customercare@countycu.com
               </p>
             ) : (
               <p className="mb-4 text-teal-800 ml-2.5">
-                Don't have IMF code? Please contact us via
+                Don&apos;t have IMF code? Please contact us via
                 customercare@countycu.com
               </p>
             )}
